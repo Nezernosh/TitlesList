@@ -17,9 +17,11 @@
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.4",
+    "babel-plugin-transform-decorators-legacy": "^1.3.5",
     "babel-preset-env": "^1.7.0",
     "babel-preset-mobx": "^1.0.3",
     "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
     "css-loader": "^0.28.11",
     "style-loader": "^0.21.0",
     "url-loader": "^1.0.1",
@@ -31,7 +33,11 @@
     "presets": [
       "env",
       "react",
-      "mobx"
+      "mobx",
+      "stage-0"
+    ],
+    "plugins": [
+      "transform-decorators-legacy"
     ]
   }
 }

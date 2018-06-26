@@ -1,19 +1,25 @@
 import React from 'react';
 import styles from './styles.module.css'
 import Title from '../Title';
+import { observer, inject } from 'mobx-react';
 
+@inject('titlesStore')
+@observer
 class List extends React.Component {
+    allTitlesPlaces = () => {
+        const count = this.props.titlesStore.getCount;
+        let all = [];
+        for (let i = 0; i < count; i++) {
+            all.push(<Title key={i} index={i} />);
+        }
+        return all;
+    }
+
     render() {
         return (
             <div className={styles.list}>
                 <ul>
-                    <Title index={0} />
-                    <Title index={1} />
-                    <Title index={2} />
-                    <Title index={3} />
-                    <Title index={4} />
-                    <Title index={5} />
-                    <Title index={6} />
+                    {this.allTitlesPlaces()}
                 </ul>
             </div>
         )

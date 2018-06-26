@@ -1,9 +1,13 @@
-import { observable } from 'mobx';
+import { action, observable, computed } from 'mobx';
 
 class TitlesStore {
-    @observable titles = ['1', '2', '3', '4', '5', '6', '7'];
+    @observable titles = [];
+    @observable places = [];
+    @observable inputValue = '';
 
-    @observable places = ['place 1', 'place 2', 'place 3', 'place 4', 'place 5', 'place 6', 'place 7'];
+    @action clearInputValue = () => {
+        this.inputValue = '';
+    }
 
     getTitle(index) {
         return this.titles[index];
@@ -11,6 +15,28 @@ class TitlesStore {
 
     getPlace(index) {
         return this.places[index];
+    }
+
+    @computed get getCount() {
+        return this.titles.length;
+    }
+
+    @computed get currentInputValue() {
+        return this.inputValue;
+    }
+
+    fetchTitlesPlaces(place) {
+        const url = `https://chroniclingamerica.loc.gov/search/titles/results/?terms=${place}&format=json&page=1`;
+        fetch(url).then(
+            response => {
+                response.json().then(
+                    data => {
+                        this.titles = data.items.map(item => item.title);
+                        this.places = data.items.map(item => item.place_of_publication);
+                    })
+            }
+        )
+            .catch(error => new Error(error));
     }
 }
 
