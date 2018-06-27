@@ -9,7 +9,7 @@ class SearchBar extends React.Component {
         e.preventDefault();
         if (this.props.titlesStore.currentInputValue) {
             const inputText = this.props.titlesStore.currentInputValue;
-            this.props.titlesStore.fetchTitlesPlaces(inputText);
+            this.props.titlesStore.fetchArticles(inputText);
             this.props.titlesStore.clearInputValue();
         }
     }

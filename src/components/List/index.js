@@ -6,20 +6,12 @@ import { observer, inject } from 'mobx-react';
 @inject('titlesStore')
 @observer
 class List extends React.Component {
-    allTitlesPlaces = () => {
-        const count = this.props.titlesStore.getCount;
-        let all = [];
-        for (let i = 0; i < count; i++) {
-            all.push(<Title key={i} index={i} />);
-        }
-        return all;
-    }
-
     render() {
+        const entities = this.props.titlesStore.titles;
         return (
             <div className={styles.list}>
                 <ul>
-                    {this.allTitlesPlaces()}
+                    {entities.map(entity => <Title title={entity.title} text={entity.place} />)}
                 </ul>
             </div>
         )
