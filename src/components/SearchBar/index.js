@@ -5,16 +5,15 @@ import { observer, inject } from 'mobx-react';
 @inject('titlesStore')
 @observer
 class SearchBar extends React.Component {
-    loadArticles = e => {
-        e.preventDefault();
-        if (this.props.titlesStore.currentInputValue) {
-            const inputText = this.props.titlesStore.currentInputValue;
-            this.props.titlesStore.fetchArticles(inputText);
+    loadArticles = () => {
+        const input = this.props.titlesStore.inputValue;
+        if (input) {
+            this.props.titlesStore.fetchArticles(input);
             this.props.titlesStore.clearInputValue();
         }
     }
 
-    handleChange = (e) => {
+    handleChange = e => {
         this.props.titlesStore.inputValue = e.target.value;
     };
 
@@ -22,10 +21,11 @@ class SearchBar extends React.Component {
         const { titlesStore } = this.props;
 
         return (
-            <form className={styles.form} onSubmit={event => this.loadArticles(event)}>
+            <form className={styles.form}>
                 <input className={styles.input} placeholder="Search" value={titlesStore.inputValue}
                     onChange={this.handleChange} />
-                <button className={styles.button} disabled={!titlesStore.inputValue}>Go</button>
+                <button className={styles.button} disabled={!titlesStore.inputValue}
+                    onClick={this.loadArticles}>Go</button>
             </form>
         )
     }

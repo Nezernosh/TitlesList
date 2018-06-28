@@ -11,7 +11,7 @@ class List extends React.Component {
         return (
             <div className={styles.list}>
                 <ul>
-                    {entities.map(entity => <Title title={entity.title} text={entity.place} />)}
+                    {entities.map((entity, i) => <Title key={i} title={entity.title} text={entity.place} />)}
                 </ul>
             </div>
         )

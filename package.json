@@ -9,6 +9,7 @@
     "start": "webpack-dev-server --hot --inline --mode development"
   },
   "dependencies": {
+    "babel-polyfill": "^6.26.0",
     "mobx": "^5.0.3",
     "mobx-react": "^5.2.3",
     "react": "^16.4.1",

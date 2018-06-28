@@ -9,26 +9,15 @@ class TitlesStore {
         this.inputValue = '';
     }
 
-    @computed get currentInputValue() {
-        return this.inputValue;
+    async fetchJson(url) {
+        const response = await fetch(url).catch(console.log);;
+        return await response.json();
     }
 
-    /* async tempFetchArticles(place) {
+    async fetchArticles(place) {
         const url = `https://chroniclingamerica.loc.gov/search/titles/results/?terms=${place}&format=json&page=1`;
-        await fetch(url)
-    } */
-    
-    fetchArticles(place) {
-        const url = `https://chroniclingamerica.loc.gov/search/titles/results/?terms=${place}&format=json&page=1`;
-        fetch(url).then(
-            response => {
-                response.json().then(
-                    data => {
-                        this.titles = data.items.map(item => ({title: item.title, place: item.place_of_publication}));
-                    })
-            }          
-        )
-            .catch(error => new Error(error));
+        const data = await this.fetchJson(url);
+        this.titles = data.items.map(item => ({ title: item.title, place: item.place_of_publication }));
     }
 }
 
