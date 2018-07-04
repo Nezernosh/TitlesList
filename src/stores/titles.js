@@ -15,9 +15,9 @@ class TitlesStore {
     }
 
     @action async fetchArticles(place) {
-        const url = `https://chroniclingamerica.loc.gov/search/titles/results/?terms=${place}&format=json&page=1`;
+        const url = `http://localhost:3000/titles?${place}`;
         const data = await this.fetchJson(url);
-        this.titles = data.items.map(item => ({ title: item.title, place: item.place_of_publication }));
+        this.titles = data.map(item => ({ title: item.title, place: item.place }));
     }
 }
 
