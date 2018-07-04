@@ -1,9 +1,7 @@
 import styled from 'styled-components';
 
-const height = 140;
-
 const Li = styled.li`
-    height: ${height}px;
+    height: 140px;
     width: 805px;
     margin-top: 8px;
     list-style: none;
@@ -34,7 +32,7 @@ const Text = styled.p`
     color: white;
     font-size: 25px;
     position: absolute;
-    bottom: 0;
+    bottom: 10px;
 `;
 
 const LeftArea = styled.div`
@@ -45,10 +43,10 @@ const LeftArea = styled.div`
 `;
     
 const CentralShape = styled.div`
-    width: 35px;
-    border-left: 15px outset #d2d3d5;
+    width: 25px;
+    border-left: 10px outset #d2d3d5;
     border-right: 10px inset #4b4b4d;
-    border-top: ${height}px solid #363435;
+    border-top: 140px solid #363435;
     position: absolute;
     left: 54.5%;
     transform: skewX(15deg);
