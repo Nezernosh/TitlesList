@@ -19,11 +19,11 @@
 }
 
 .text {
-    height: 48px;
+    height: 41px;
     width: 600px;
     margin: 0;
     padding-left: 28px;
-    padding-top: 8px;
+    padding-top: 15px;
     text-align: left;
     background-color: #890e4f;
     color: white;
