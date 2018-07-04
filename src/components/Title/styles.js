@@ -1,7 +1,9 @@
 import styled from 'styled-components';
 
+const height = 140;
+
 const Li = styled.li`
-    height: 140px;
+    height: ${height}px;
     width: 805px;
     margin-top: 8px;
     list-style: none;
@@ -41,14 +43,15 @@ const LeftArea = styled.div`
     float: left;
     background-color: #d2d3d5;
 `;
-
+    
 const CentralShape = styled.div`
-    background-color: #363435;
-    width: 40px;
-    height: 100%;
+    width: 35px;
+    border-left: 15px outset #d2d3d5;
+    border-right: 10px inset #4b4b4d;
+    border-top: ${height}px solid #363435;
     position: absolute;
     left: 54.5%;
-    transform: skewX(10deg);
+    transform: skewX(15deg);
 `;
 
 const RightArea = styled.div`
