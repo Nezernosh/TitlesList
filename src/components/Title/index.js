@@ -1,15 +1,18 @@
 import React from 'react';
-import styles from './styles.module.css';
+import { Li, Headline, Text, LeftArea, RightArea, CentralShape } from './styles.js';
 import { observer } from 'mobx-react';
 
 @observer
 class Title extends React.Component {
     render() {
         return (
-            <li className={styles.li}>
-                <p className={styles.title}>{this.props.title}</p>
-                <p className={styles.text}>{this.props.text}</p>
-            </li>
+            <Li>
+                <Headline>{this.props.title}</Headline>
+                <LeftArea />
+                <CentralShape />
+                <RightArea />
+                <Text>{this.props.text}</Text>
+            </Li>
         )
     }
 }

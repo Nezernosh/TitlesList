@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './styles.module.css'
+import Ul from './styles.js'
 import Title from '../Title';
 import { observer, inject } from 'mobx-react';
 
@@ -9,10 +9,10 @@ class List extends React.Component {
     render() {
         const entities = this.props.titlesStore.titles;
         return (
-            <div className={styles.list}>
-                <ul>
+            <div>
+                <Ul>
                     {entities.map((entity, i) => <Title key={i} title={entity.title} text={entity.place} />)}
-                </ul>
+                </Ul>
             </div>
         )
     }
