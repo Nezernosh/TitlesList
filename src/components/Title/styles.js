@@ -41,7 +41,7 @@ const LeftArea = styled.div`
     float: left;
     background-color: #d2d3d5;
 `;
-    
+
 const CentralShape = styled.div`
     width: 25px;
     border-left: 10px outset #d2d3d5;
@@ -59,4 +59,6 @@ const RightArea = styled.div`
     background-color: #4b4b4d;
 `;
 
-export { Li, Headline, Text, LeftArea, RightArea, CentralShape };
+export {
+  Li, Headline, Text, LeftArea, RightArea, CentralShape,
+};
