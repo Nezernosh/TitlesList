@@ -6,18 +6,18 @@ class TitlesStore {
     @observable inputValue = '';
 
     @action clearInputValue = () => {
-        this.inputValue = '';
+      this.inputValue = '';
     }
 
-    async fetchJson(url) {
-        const response = await fetch(url).catch(console.log);;
-        return await response.json();
+    static async fetchJson(url) {
+      const response = await fetch(url).catch(console.log);
+      return response.json();
     }
 
     @action async fetchArticles(place) {
-        const url = `http://localhost:3000/titles?${place}`;
-        const data = await this.fetchJson(url);
-        this.titles = data.map(item => ({ title: item.title, place: item.place }));
+      const url = `http://localhost:3000/titles?${place}`;
+      const data = await TitlesStore.fetchJson(url);
+      this.titles = data.map((item, i) => ({ id: i, title: item.title, place: item.place }));
     }
 }
 
