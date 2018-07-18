@@ -6,6 +6,7 @@
   },
   "rules": {
     "linebreak-style": ["error", "windows"],
-    "import/extensions": ["jsx", "always"]
+    "import/extensions": ["jsx", "always"],
+    "no-param-reassign": 0
   }
 }

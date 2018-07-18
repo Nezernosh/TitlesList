@@ -4,8 +4,13 @@ import { Provider } from 'mobx-react';
 import App from './components/App/index.jsx';
 import TitlesStore from './stores/titles';
 
+const titlesStore = TitlesStore.create({
+  titles: [],
+  inputValue: '',
+});
+
 const root = (
-  <Provider titlesStore={TitlesStore}>
+  <Provider titlesStore={titlesStore}>
     <App />
   </Provider>
 );

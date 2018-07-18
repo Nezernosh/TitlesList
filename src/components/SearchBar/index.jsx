@@ -7,16 +7,13 @@ import { Form, Input, Button } from './styles.js';
 class SearchBar extends React.Component {
   loadArticles = () => {
     const prop = this.props;
-    const input = prop.titlesStore.inputValue;
-    if (input) {
-      prop.titlesStore.fetchArticles(input);
-      prop.titlesStore.clearInputValue();
-    }
+    prop.titlesStore.fetchTitles();
+    prop.titlesStore.clearInputValue();
   }
 
   handleChange = (e) => {
     const prop = this.props;
-    prop.titlesStore.inputValue = e.target.value;
+    prop.titlesStore.changeInputValue(e.target.value);
   };
 
   render() {
